@@ -23,7 +23,7 @@ class Extension extends \Magento\Framework\Model\AbstractModel
 
     /**
      * CURL Factory
-     * 
+     *
      * @var \Magento\Framework\HTTP\Adapter\CurlFactory
      */
     protected $curlFactory;
@@ -37,49 +37,49 @@ class Extension extends \Magento\Framework\Model\AbstractModel
 
     /**
      * Magento Metadata
-     * 
+     *
      * @var \Magento\Framework\App\ProductMetadataInterface
      */
     protected $productMetadata;
 
     /**
      * URL Builder
-     * 
+     *
      * @var \Magento\Framework\UrlInterface
      */
     protected $urlBuilder;
 
     /**
      * Library for working with server ip address
-     * 
+     *
      * @var \Magento\Framework\HTTP\PhpEnvironment\ServerAddress
      */
     protected $serverAddress;
 
     /**
      * Module statuses manager
-     * 
+     *
      * @var \Magento\Framework\Module\Manager
      */
     protected $moduleManager;
 
     /**
      * Templatestudio module list
-     * 
+     *
      * @var \Templatestudio\Core\App\Module\ModuleList
      */
     protected $moduleList;
 
     /**
      * Magento Simple XML Element Factory
-     * 
+     *
      * @var \Magento\Framework\Simplexml\ElementFactory
      */
     protected $xmlElementFactory;
 
     /**
      * Object Factory
-     * 
+     *
      * @var \Magento\Framework\DataObject\Factory
      */
     protected $objectFactory;
