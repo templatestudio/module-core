@@ -10,7 +10,7 @@ use Magento\Framework\Module\ModuleList\Loader;
 /**
  * A list of Templatestudio modules
  */
-class ModuleList extends \Magento\Framework\Module\FullModuleList
+class ModuleList extends \Magento\Framework\Module\FullModuleList implements ModuleListInterface
 {
 
     /**
@@ -19,7 +19,7 @@ class ModuleList extends \Magento\Framework\Module\FullModuleList
      * @var ModuleList\Loader
      */
     private $loader;
-    
+
     /**
      * Enumeration of the module names
      *
@@ -46,7 +46,7 @@ class ModuleList extends \Magento\Framework\Module\FullModuleList
 
     /**
      * Retrieve all Templatestudio modules
-     * 
+     *
      * @return string[]
      */
     public function getAll()
@@ -67,7 +67,7 @@ class ModuleList extends \Magento\Framework\Module\FullModuleList
 
     /**
      * Retrieve vendor
-     * 
+     *
      * @return string
      */
     public function getVendor()
@@ -83,7 +83,7 @@ class ModuleList extends \Magento\Framework\Module\FullModuleList
      * Set vendor
      *
      * @param String $vendor
-     * @return Templatestudio\Core\App\Module\ModuleList
+     * @return $this
      */
     public function setVendor($vendor)
     {
