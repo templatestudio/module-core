@@ -122,9 +122,9 @@ class Converter implements \Magento\Framework\Config\ConverterInterface
                 if ($nodeElement->hasChildNodes()) {
                     if (1 == $nodeElement->childNodes->length
                         and in_array($nodeElement->childNodes->item(0)->nodeType, [
-                        XML_CDATA_SECTION_NODE,
-                        XML_TEXT_NODE
-                    ])) {
+                            XML_CDATA_SECTION_NODE,
+                            XML_TEXT_NODE
+                        ])) {
                         $nodeData = $nodeElement->childNodes->item(0)->textContent;
                     } else {
                         $nodeData = $this->getNodeListValues($nodeElement->childNodes);
