@@ -51,7 +51,17 @@ class Config extends \Magento\Framework\Config\Data
      */
     public function getFeedUrl()
     {
-        return $this->getUrl('feed', self::VENDOR_URL);
+        return $this->getUrl('feed');
+    }
+
+    /**
+     * Retrieve license check url
+     *
+     * @return string
+     */
+    public function getLicenseUrl()
+    {
+        return $this->getUrl('license');
     }
 
     /**
@@ -61,7 +71,7 @@ class Config extends \Magento\Framework\Config\Data
      */
     public function getQuoteUrl()
     {
-        return $this->getUrl('quote', self::VENDOR_URL);
+        return $this->getUrl('quote');
     }
 
     /**
@@ -71,7 +81,7 @@ class Config extends \Magento\Framework\Config\Data
      */
     public function getVendorUrl()
     {
-        return $this->getUrl('vendor', self::VENDOR_URL);
+        return $this->getUrl('vendor');
     }
 
     /**
