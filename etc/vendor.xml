@@ -17,6 +17,7 @@
         <property code="vendor">http://www.templatestudio.com/</property>
         <property code="feed">http://www.templatestudio.com/feed/file.rss</property>
         <property code="extension">http://www.templatestudio.com/extmanager/extension/feed/</property>
+        <property code="license">http://www.templatestudio.com/extmanager/extension/license/</property>
         <property code="quote">http://www.templatestudio.com/quote/</property>
     </url>
     <email>
