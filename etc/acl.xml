@@ -6,16 +6,6 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magento_Backend::stores">
-                    <resource id="Magento_Backend::stores_settings">
-                        <resource id="Magento_Config::config">
-                        </resource>
-                    </resource>
-                </resource>
-            </resource>
-        </resources>
-        <resources>
-            <resource id="Magento_Backend::admin">
                 <resource id="Templatestudio_Core::admin" title="Template Studio">
                     <resource id="Templatestudio_Core::config_info" title="General Information" />
                 </resource>
