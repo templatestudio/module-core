@@ -25,7 +25,7 @@ class Feed extends \Magento\AdminNotification\Model\Feed
 
     /**
      * Vendor Config
-     * 
+     *
      * @var \Templatestudio\Core\Model\Vendor\Config
      */
     protected $vendorConfig;
