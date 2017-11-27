@@ -23,7 +23,7 @@ class SchemaLocator implements \Magento\Framework\Config\SchemaLocatorInterface
 
     /**
      * Constructor
-     * 
+     *
      * @param \Magento\Framework\Module\Dir\Reader $moduleReader
      */
     public function __construct(\Magento\Framework\Module\Dir\Reader $moduleReader)
@@ -50,7 +50,7 @@ class SchemaLocator implements \Magento\Framework\Config\SchemaLocatorInterface
 
     /**
      * Retrieve XSD filename
-     * 
+     *
      * @return string
      */
     static public function getVendorXsdFilename()
