@@ -2,48 +2,70 @@
 /**
  * Copyright © 2016 Templatestudio UK. All rights reserved.
  */
-namespace Templatestudio\Core\Block\Adminhtml\System\Config\Form\Field;
 
-use Magento\Framework\Data\Form\Element\AbstractElement;
-use Magento\Framework\Stdlib\DateTime\DateTimeFormatterInterface;
+namespace Templatestudio\Core\Block\Adminhtml\System\Config\Form\Fieldset\Modules;
 
-/**
- * Backend system config datetime field renderer
- */
-class Notification extends \Magento\Config\Block\System\Config\Form\Field
+class Templatestudio extends \Magento\Config\Block\System\Config\Form\Fieldset
 {
 
     /**
-     * Datetime formater
-     *
-     * @var DateTimeFormatterInterface
+     * Vendor config
+     * 
+     * @var null|\Templatestudio\Core\Model\Vendor\Config
      */
-    protected $dateTimeFormatter;
+    protected $vendorConfig;
 
     /**
      * Constructor
-     *
-     * @param \Magento\Backend\Block\Template\Context $context
-     * @param DateTimeFormatterInterface $dateTimeFormatter
+     * 
+     * @param \Magento\Backend\Block\Context $context
+     * @param \Magento\Backend\Model\Auth\Session $authSession
+     * @param \Magento\Framework\View\Helper\Js $jsHelper
+     * @param \Templatestudio\Core\Model\Vendor\Config $vendorConfig
      * @param array $data
+     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        DateTimeFormatterInterface $dateTimeFormatter,
+        \Magento\Backend\Block\Context $context,
+        \Magento\Backend\Model\Auth\Session $authSession,
+        \Magento\Framework\View\Helper\Js $jsHelper,
+        \Templatestudio\Core\Model\Vendor\Config $vendorConfig,
         array $data = []
     ) {
-        parent::__construct($context, $data);
-        $this->dateTimeFormatter = $dateTimeFormatter;
+        parent::__construct($context, $authSession, $jsHelper, $data);
+        $this->vendorConfig = $vendorConfig;
     }
 
     /**
      * {@inheritdoc}
-     * @see \Magento\Config\Block\System\Config\Form\Field::_getElementHtml()
      */
-    protected function _getElementHtml(AbstractElement $element)
+    protected function _getHeaderHtml($element)
     {
-        $element->setValue($this->_cache->load(\Templatestudio\Core\Model\Feed::CACHE_IDENTIFIER));
-        $format = $this->_localeDate->getDateTimeFormat(\IntlDateFormatter::MEDIUM);
-        return $this->dateTimeFormatter->formatObject($this->_localeDate->date(intval($element->getValue())), $format);
+        $html = parent::_getHeaderHtml($element);
+
+        $html .= '
+        <a id="templatestudio-core-quote" href="'. $this->getQuoteUrl() . '"'.
+            ' title="' . __('Get in touch') . '" target="_blank">
+            <img src="' . $this->getViewFileUrl('Templatestudio_Core::images/templatestudio-quote.jpg') . '" '.
+                'alt="' . __('Get in touch') . '" />
+        </a>';
+
+        $thead = '<thead><tr>'
+            . '<td class="label"><strong>' . __('Module Name') . '</strong></td>'
+            . '<td><strong>' . __('License') . '</strong></td>'
+            . '<td></td>'
+            . '</tr></thead>';
+
+        return substr_replace($html, $thead, stripos($html, '<tbody>'), 0);
+    }
+
+    /**
+     * Retrieve quote URL
+     * 
+     * @return string
+     */
+    protected function getQuoteUrl()
+    {
+        return $this->vendorConfig->getQuoteUrl();
     }
 }
