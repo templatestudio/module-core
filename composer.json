@@ -11,7 +11,7 @@
       "role": "Developer"
     }
   ],
-  "license": "CL",
+  "license": "OSL-3.0",
   "autoload": {
     "files": [
       "registration.php"
